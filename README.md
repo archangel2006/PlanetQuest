@@ -15,13 +15,38 @@ It combines fun visuals, bite-sized knowledge, and simple actions to help users 
 Whether you're a student, an educator, or just curious — this platform makes **environmental education engaging and rewarding.**
 
 ---
+
+## 🎯 Goal
+
+- PlanetQuest aims to raise awareness about pressing environmental issues by making learning interactive, fun, and actionable.  
+- We believe that **small steps taken consistently by informed individuals can lead to big changes** — and this project encourages exactly that.  
+- It's more than just a game — it's a call to explore, learn, and act for the planet.
+
+---
+
 ## 🚀 Features
 
 Our goal is to educate users (especially students) about environmental issues (pollution, biodiversity, energy, climate, sustainability) in a fun and engaging ways. Features include: 
+
 📚 Explore the Planet & their Issues
+
 📊 Environmental Facts & News
+
 🎯 Daily Eco-Challenges
+
 ❓ Environmental Quizzes
+
+---
+<!-- ## 📸 App Preview
+
+> This app is hosted on
+
+Access it here: 
+
+Video: 
+
+Screenshots: -->
+
 
 ---
 ## 🛠️ Tech Stack
