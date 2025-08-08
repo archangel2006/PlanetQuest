@@ -23,6 +23,8 @@ body{
 }
 .container{max-width:1000px;margin:0 auto;padding:18px}
 
+/* ------------- HEADER ------------- */
+
 .site-header{background: linear-gradient(0deg, var(--accent), var(--accent-2));; box-shadow: 0 4px 12px rgba(7, 56, 15, 0.1);border-bottom:1px solid rgba(6, 53, 9, 0.04); padding:8px 28px; position: fixed; top:0; width: 100%; z-index:100; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; }
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:3px 0}
 .brand{display:flex;gap:12px;align-items:center}
@@ -36,8 +38,9 @@ body{
 .badge-row{display:flex;gap:8px;padding-bottom:14px;align-items:center;flex-wrap:wrap}
 .badge-row img{height:28px}
 
-.hero {padding-top: 28px; background: linear-gradient(180deg, #f4fff3 0%, transparent 100%);}
-.hero{padding-top: 28px;}
+/* ----------- HERO SECTION ------------ */
+.hero {padding-top: 36px; background: linear-gradient(180deg, #f4fff3 0%, transparent 100%);}
+.hero{padding-top: 36px;}
 .hero-inner{display:flex;gap:15px;align-items:center;justify-content:space-between; padding-left:8px; padding-top:22px}
 .hero-text{ max-width: 500px;}
 .hero h2{margin:0;font-size:36px;}
@@ -53,11 +56,25 @@ body{
 
 .earth-gif {max-width: 260px; display:block; margin: 0 auto; height: auto;display: block; margin: 0 auto; z-index:-1;}
 
-.section{padding:28px 0}
+/* --------- ABOUT US ------------- */
+
+#about {padding: 2rem;}
+.about-container {display: flex;align-items: center;gap: 2rem;max-width: 900px;margin: 0 auto;}
+.about-image img {width: 100%;max-width: 400px;border-radius: 10px;object-fit: cover;display: block;}
+.about-content {flex: 1;}
+.about-content h3 {margin-bottom: 1rem;font-size: 2rem;}
+.about-content p {margin-bottom: 1.5rem;line-height: 1.5;color: #333;}
+.about-goal h4 {margin-bottom: 0.5rem; font-size: 1.3rem;}
+.about-goal p {margin: 0;color: #555;}
+
+
+
+/* -------------ENVIRONMENT---------------*/
+/*.section{padding:28px 0}
 .section.light{background:linear-gradient(180deg, #f4fff3 0%, transparent 100%);}
 h3{margin:0 0 8px;font-size:20px}
 .muted{color:var(--muted)}
-.small{font-size:13px}
+.small{font-size:13px} */
 
 
 .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
@@ -70,6 +87,32 @@ h3{margin:0 0 8px;font-size:20px}
 .card h4{margin:0 0 8px}
 .card p{margin:0;color:var(--muted)}
 
+/*---------CHALLENGE----------*/
+/* challenge */
+.challenge-box{background:var(--card);padding-left:18px; padding:10px;border-radius:12px;box-shadow:var(--shadow); display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 200px;
+}
+.challenge-controls{margin-top:10px;display:flex;gap:8px;align-items:center}
+#challengeStatus{margin-top:8px}
+.challenge-content {
+  flex: 1; 
+}
+.challenge-gif {
+  flex-shrink: 0; 
+  width: 180px;
+  height: 150px;
+  margin-right: 20px;
+  border-radius: 200px;
+}
+
+/*---------DID YOU KNOW?------------ */
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mini-list{margin:8px 0 30px;padding-left:18px;color:var(--muted)}
+
+/* ------ QUIZ ------ */
 
 #quiz {background: linear-gradient(180deg, #f4fff3 0%, transparent 100%);;padding: 2rem 1rem;border-radius: 0 0 16px 16px;}
 .quiz-scroll {display: flex;overflow-x: auto;gap: 2rem; padding: 1rem 0;scroll-snap-type: x mandatory;}
@@ -79,7 +122,7 @@ h3{margin:0 0 8px;font-size:20px}
 .quiz-card p { font-size: 0.8rem; color: #555;text-align: center; flex-grow: 1;}
 .quiz-card button { padding: 0.3rem 0.6rem; font-size: 0.8rem;}
 
-/* Modal */
+/* ---------Modal---------  */
 .modal {
   display: none; 
   position: fixed;
@@ -111,24 +154,6 @@ h3{margin:0 0 8px;font-size:20px}
   color: #e74c3c;
 }
 
-
-@media (max-width:880px){
-  .hero-inner{flex-direction:column;align-items:flex-start}
-  .card-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:520px){
-  .card-grid{grid-template-columns:1fr}
-  .nav{display:none}
-}
-
-/* Did you know area */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.mini-list{margin:8px 0 0;padding-left:18px;color:var(--muted)}
-/* challenge */
-.challenge-box{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
-.challenge-controls{margin-top:12px;display:flex;gap:8px;align-items:center}
-#challengeStatus{margin-top:8px}
-
 /* quiz */
 .quiz-area{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
 #options{display:flex;flex-direction:column;gap:8px;margin-top:12px}
@@ -141,8 +166,33 @@ h3{margin:0 0 8px;font-size:20px}
 /* facts grid */
 .card-grid.small .card{min-height:90px}
 
-/* about */
-.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
-@media (max-width:880px){ .about-grid{grid-template-columns:1fr} }
 
-.site-footer{padding:18px 0;border-top:1px solid rgba(0,0,0,.04);margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+
+/* ----FOOTER ------ */
+
+.site-footer{
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  box-shadow: 0 -4px 12px rgba(7, 56, 15, 0.08);
+  border-top:1px solid rgba(6, 53, 9, 0.04);
+  padding:5px 5px;
+  color: var(--navbar);
+  font-size:13px;
+  text-align:center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width:880px){
+  .hero-inner{flex-direction:column;align-items:flex-start}
+  .card-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:8px}
+}
+
+@media (max-width:520px){
+  .card-grid{grid-template-columns:1fr}
+  .nav{display:none}
+  .about-container{flex-direction:column}
+  main.site-main { padding-top: 100px; } 
+}

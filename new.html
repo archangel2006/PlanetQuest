@@ -21,11 +21,12 @@
       </div>
 
       <nav class="nav">
+        <a href="#about">About</a>
         <a href="#environment">Environment</a>
-        <a href="#challenge">Challenge</a>
+        <a href="#challenge">Daily Challenge</a>
         <a href="#quiz">Quiz</a>
         <a href="#facts">Facts</a>
-        <a href="#about">About</a>
+        
       </nav>
     </div>
 
@@ -47,7 +48,7 @@
           <!-- Art-->
           <div class="hero-art">
             <lottie-player 
-              src="\assets\Greenify the Earth.json"
+              src="\assets\earth\Greenify the Earth.json"
               background="transparent"  
               speed="1"  
               style="width:400px; height:400px;"  
@@ -58,6 +59,29 @@
         <!--  <img src="\assets\Greenify the Earth.gif" class="earth-gif"> -->
       </div>
     </section>
+    
+
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="about-container">
+        <!-- Image -->
+        <div class="about-image">
+          <img src="\assets\earth\SaveThePlanet.svg" alt="PlanetQuest Image" />
+        </div>
+
+        <!-- Text content -->
+        <div class="about-content">
+          <h3>About PlanetQuest</h3>
+          <p>PlanetQuest was born from a deep love for nature and a desire to inspire young people to care for our planet.</p> 
+          <p>Many today have grown used to environmental decline and don’t realize the damage happening around them. Planet Quest is on a quest help learners rediscover the beauty and importance of a healthy Earth.</p>
+          <div class="about-goal">
+            <h4>Goal</h4>
+            <p>To reduce friction between learning and acting — small daily steps build habits that matter.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ENVIRONMENT -->
     <section id="environment" class="section">
@@ -66,6 +90,30 @@
 
       <div id="cards" class="card-grid">
         <!-- cards populated by JS -->
+      </div>
+    </section>
+
+    <!-- DAILY CHALLENGE -->
+    <section id="challenge" class="section">
+    <h3>Daily Challenge</h3>
+      <div class="challenge-box">
+        <div class="challenge-content">
+          <p id="todayChallenge">Loading today's challenge...</p>
+          <div class="challenge-controls">
+            <button id="markDone" class="btn">Mark as Done</button>
+            <button id="nextChallenge" class="btn ghost">New Challenge</button>
+          </div>
+          <p id="challengeStatus" class="muted small"></p>
+        </div>
+        <div class="challenge-gif">
+          <lottie-player 
+                src="\assets\earth\Ecology isometric animation.json"
+                background="transparent"  
+                speed="1.2"
+                loop  
+                autoplay>
+              </lottie-player>
+        </div>
       </div>
     </section>
 
@@ -88,20 +136,6 @@
         </div>
       </div>
     </section>
-
-    <!-- DAILY CHALLENGE -->
-    <section id="challenge" class="section">
-      <h3>Daily Challenge</h3>
-      <div class="challenge-box">
-        <p id="todayChallenge">Loading today's challenge...</p>
-        <div class="challenge-controls">
-          <button id="markDone" class="btn">Mark as Done</button>
-          <button id="nextChallenge" class="btn ghost">New Challenge</button>
-        </div>
-        <p id="challengeStatus" class="muted small"></p>
-      </div>
-    </section>
-
     
     <!-- QUIZ -->
     <section id="quiz" class="section">
@@ -146,29 +180,8 @@
         <button class="btn small">Take Quiz</button>
         </div>
     </div>
-
-    <div class="quiz-area">
-        <div id="quizContainer">
-        <div id="questionWrap">
-            <h4 id="qText">Question text</h4>
-            <div id="options"></div>
-        </div>
-
-        <div class="quiz-controls">
-            <button id="submitAnswer" class="btn">Submit</button>
-            <button id="nextQ" class="btn ghost" style="display:none">Next</button>
-        </div>
-
-        <p id="feedback" class="muted"></p>
-        <div id="result" style="display:none">
-            <h4>Your Score: <span id="scoreVal">0</span>/<span id="totalQ">0</span></h4>
-            <button id="restart" class="btn ghost">Try Again</button>
-        </div>
-        </div>
-    </div>
-    </section>
-
-
+    </br>
+    </br>
     <!-- FACTS & NEWS -->
     <section id="facts" class="section light">
       <h3>Facts & News</h3>
@@ -176,36 +189,28 @@
         <!-- populated by JS -->
       </div>
     </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <h3>About PlanetQuest</h3>
-      <p>PlanetQuest was created to inspire students and young people to learn about the environment and take simple, real-world actions. Built for Panda Hacks 2025.</p>
-
-      <div class="about-grid">
-        <div>
-          <h4>Author</h4>
-          <p><strong>Archangel</strong><br>Student developer & environmental enthusiast.</p>
-        </div>
-        <div>
-          <h4>Goal</h4>
-          <p>To reduce friction between learning and acting — small daily steps build habits that matter.</p>
-        </div>
-        <div>
-          <h4>Tech Stack</h4>
-          <p>HTML • CSS • JavaScript (Vanilla)</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 PlanetQuest • All rights reserved (Proprietary)</p>
-      <p class="small muted">Submission for Panda Hacks 2025</p>
+    </br>
+    </br>
+    </br>
+    <div class="hero-art">
+            <lottie-player 
+              src="\assets\earth\Eco-friendly city.json"
+              background="transparent"  
+              speed="1"  
+              style="width:450px; height:250px;"  
+              loop  
+              autoplay>
+            </lottie-player>
     </div>
+  </main>
+  <!--------------- FOOTER ------------>
+
+    <footer class="site-footer">
+      <p>© 2025 PlanetQuest • All rights reserved</p>
+      <p>Made With Love🩷 by Archangel</p>
   </footer>
+
+
 
   <!-- QUIZ MODAL-->
   <div id="quizModal" class="modal">
