@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PlanetQuest</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="PlanetQuest - An eco-adventure where learning leads to awareness and impact.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">🌍</div>
+        <div>
+          <h1>PlanetQuest</h1>
+          <p class="tag">Learn. Act. Save the Earth.</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#environment">Environment</a>
+        <a href="#challenge">Challenge</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#facts">Facts</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+
+  </header>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div>
+          <h2>One Planet. One Quest. Endless Impact.</h2>
+          <p>PlanetQuest is an eco-adventure where learning leads to awareness and impact. Explore topics, take short quizzes, and try daily green missions.</p>
+          <div class="hero-ctas">
+            <a class="btn" href="#environment">Start Learning</a>
+            <a class="btn ghost" href="#quiz">Take a Quiz</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <!-- simple SVG artwork (vector) -->
+          <svg width="220" height="220" viewBox="0 0 200 200" aria-hidden>
+            <circle cx="100" cy="100" r="80" fill="#dff3e1"/>
+            <path d="M100 20 a80 80 0 0 0 0 160" fill="#7fc27f" opacity="0.9"/>
+            <!-- leaves -->
+            <g fill="#4a8b4a">
+              <ellipse cx="150" cy="40" rx="18" ry="10" transform="rotate(20 150 40)"/>
+              <ellipse cx="50" cy="40" rx="18" ry="10" transform="rotate(-20 50 40)"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENVIRONMENT -->
+    <section id="environment" class="section">
+      <h3>Environment Topics</h3>
+      <p class="muted">Explore core environmental topics — quick facts and why they matter.</p>
+
+      <div id="cards" class="card-grid">
+        <!-- cards populated by JS -->
+      </div>
+    </section>
+
+    <!-- DID YOU KNOW -->
+    <section class="section light" id="didyouknow">
+      <div class="two-col">
+        <div>
+          <h3>Did You Know?</h3>
+          <p id="randomFact" class="fact">Loading fact...</p>
+          <button id="newFact" class="btn small">Show another fact</button>
+        </div>
+
+        <div>
+          <h3>Quick Actions</h3>
+          <ul class="mini-list">
+            <li>Turn off lights when leaving a room</li>
+            <li>Use a reusable bottle</li>
+            <li>Collect one plastic item daily</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAILY CHALLENGE -->
+    <section id="challenge" class="section">
+      <h3>Daily Challenge</h3>
+      <div class="challenge-box">
+        <p id="todayChallenge">Loading today's challenge...</p>
+        <div class="challenge-controls">
+          <button id="markDone" class="btn">Mark as Done</button>
+          <button id="nextChallenge" class="btn ghost">New Challenge</button>
+        </div>
+        <p id="challengeStatus" class="muted small"></p>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" class="section">
+      <h3>EcoChallenge Quiz</h3>
+      <div class="quiz-area">
+        <div id="quizContainer">
+          <div id="questionWrap">
+            <h4 id="qText">Question text</h4>
+            <div id="options"></div>
+          </div>
+
+          <div class="quiz-controls">
+            <button id="submitAnswer" class="btn">Submit</button>
+            <button id="nextQ" class="btn ghost" style="display:none">Next</button>
+          </div>
+
+          <p id="feedback" class="muted"></p>
+          <div id="result" style="display:none">
+            <h4>Your Score: <span id="scoreVal">0</span>/<span id="totalQ">0</span></h4>
+            <button id="restart" class="btn ghost">Try Again</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACTS & NEWS -->
+    <section id="facts" class="section light">
+      <h3>Facts & News</h3>
+      <div id="factsGrid" class="card-grid small">
+        <!-- populated by JS -->
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h3>About PlanetQuest</h3>
+      <p>PlanetQuest was created to inspire students and young people to learn about the environment and take simple, real-world actions. Built for Panda Hacks 2025.</p>
+
+      <div class="about-grid">
+        <div>
+          <h4>Author</h4>
+          <p><strong>Archangel</strong><br>Student developer & environmental enthusiast.</p>
+        </div>
+        <div>
+          <h4>Goal</h4>
+          <p>To reduce friction between learning and acting — small daily steps build habits that matter.</p>
+        </div>
+        <div>
+          <h4>Tech Stack</h4>
+          <p>HTML • CSS • JavaScript (Vanilla)</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 PlanetQuest • All rights reserved (Proprietary)</p>
+      <p class="small muted">Submission for Panda Hacks 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
