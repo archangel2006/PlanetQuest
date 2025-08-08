@@ -102,29 +102,73 @@
       </div>
     </section>
 
+    
     <!-- QUIZ -->
     <section id="quiz" class="section">
-      <h3>EcoChallenge Quiz</h3>
-      <div class="quiz-area">
+    <h3>EcoChallenge Quiz</h3>
+    <p class="muted">Choose a topic below to test your eco-knowledge. Scroll to explore different quiz types!</p>
+
+    <div class="quiz-scroll">
+        <div class="quiz-card">
+        <h4>🌊 Marine Conservation</h4>
+        <img src="\assets\quiz\MarineConservation.svg">
+        <p>Discover how our oceans can thrive again.</p>
+        <button class="btn small">Take Quiz</button>
+        </div>
+        <div class="quiz-card">
+        <h4>🌳 Afforestation</h4>
+        <img src="\assets\quiz\Afforestation.svg">
+        <p>Trees: the original climate tech. Trees: The best neighbors.</p>
+        
+        <button class="btn small">Take Quiz</button>
+        </div>
+        <div class="quiz-card">
+        <h4>🗑 Pollution</h4>
+        <img src="\assets\quiz\Pollution2.svg">
+        <p>Learn how to reduce waste and pollution.</p>
+        <button class="btn small">Take Quiz</button>
+        </div>
+        <div class="quiz-card">
+        <h4>☀ Renewable Energy</h4>
+        <img src="\assets\quiz\RenewableEnergy.svg">
+        <p>Explore clean power for a brighter future.</p>
+        <button class="btn small">Take Quiz</button>
+        </div>
+        <div class="quiz-card">
+        <h4>🐾 Wildlife</h4>
+        <img src="\assets\quiz\Wildlife.svg">
+        <p>Help protect endangered species worldwide.</p>
+        <button class="btn small">Take Quiz</button>
+        </div>
+        <div class="quiz-card">
+        <h4>🌍 Climate Change</h4>
+        <img src="\assets\quiz\ClimateChange.svg">
+        <p>Understand the biggest challenge of our time.</p>
+        <button class="btn small">Take Quiz</button>
+        </div>
+    </div>
+
+    <div class="quiz-area">
         <div id="quizContainer">
-          <div id="questionWrap">
+        <div id="questionWrap">
             <h4 id="qText">Question text</h4>
             <div id="options"></div>
-          </div>
+        </div>
 
-          <div class="quiz-controls">
+        <div class="quiz-controls">
             <button id="submitAnswer" class="btn">Submit</button>
             <button id="nextQ" class="btn ghost" style="display:none">Next</button>
-          </div>
+        </div>
 
-          <p id="feedback" class="muted"></p>
-          <div id="result" style="display:none">
+        <p id="feedback" class="muted"></p>
+        <div id="result" style="display:none">
             <h4>Your Score: <span id="scoreVal">0</span>/<span id="totalQ">0</span></h4>
             <button id="restart" class="btn ghost">Try Again</button>
-          </div>
         </div>
-      </div>
+        </div>
+    </div>
     </section>
+
 
     <!-- FACTS & NEWS -->
     <section id="facts" class="section light">
