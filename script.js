@@ -92,6 +92,34 @@ document.getElementById('nextChallenge').addEventListener('click', ()=>{
   renderChallenge();
 });
 
+// ---------- Modal Quiz-----------
+// ---- Modal Logic ----
+const quizModal = document.getElementById('quizModal');
+const closeModal = document.getElementById('closeModal');
+
+// Open modal when any "Take Quiz" button is clicked
+document.querySelectorAll('.quiz-card .btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    quizModal.style.display = 'block';
+    startQuiz();
+  });
+});
+
+// Close modal
+closeModal.addEventListener('click', () => {
+  quizModal.style.display = 'none';
+});
+
+// Close if clicking outside content
+window.addEventListener('click', (e) => {
+  if (e.target === quizModal) {
+    quizModal.style.display = 'none';
+  }
+});
+
+// ------- quiz Qs ------
+
+
 // --------- quiz system ----------
 let qIndex = 0, score = 0;
 const totalQ = QUIZ.length;

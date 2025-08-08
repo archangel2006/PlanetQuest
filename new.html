@@ -119,7 +119,6 @@
         <h4>🌳 Afforestation</h4>
         <img src="\assets\quiz\Afforestation.svg">
         <p>Trees: the original climate tech. Trees: The best neighbors.</p>
-        
         <button class="btn small">Take Quiz</button>
         </div>
         <div class="quiz-card">
@@ -207,6 +206,33 @@
       <p class="small muted">Submission for Panda Hacks 2025</p>
     </div>
   </footer>
+
+  <!-- QUIZ MODAL-->
+  <div id="quizModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <div id="quizContainer">
+        <div id="questionWrap">
+          <h4 id="qText">Question text</h4>
+          <div id="options"></div>
+        </div>
+
+        <div class="quiz-controls">
+          <button id="submitAnswer" class="btn">Submit</button>
+          <button id="nextQ" class="btn ghost" style="display:none">Next</button>
+        </div>
+
+        <p id="feedback" class="muted"></p>
+        <div id="result" style="display:none">
+          <h4>Your Score: <span id="scoreVal">0</span>/<span id="totalQ">0</span></h4>
+          <button id="restart" class="btn ghost">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="script.js"></script>
 </body>
