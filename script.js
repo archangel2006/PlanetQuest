@@ -1,20 +1,22 @@
 // PlanetQuest - main JS
 // Data sets (cards, facts, quiz)
 const ENV_CARDS = [
-  {title:'Marine Life', text:'Ocean health, coral reefs, and plastic pollution. Learn how simple actions protect marine animals.'},
-  {title:'Forests & Trees', text:'Forests are the lungs of the Earth. Reforestation, biodiversity and community forests matter.'},
-  {title:'Climate Change', text:'Causes, effects, and what students can do: reduce waste, save energy, learn more.'},
-  {title:'Air & Atmosphere', text:'Air quality, emissions, and ways to reduce local pollution.'},
-  {title:'Soil & Land', text:'Soil health, sustainable farming, and preventing erosion.'},
-  {title:'Energy & Renewables', text:'How renewable energy sources reduce emissions and help communities.'}
+  {title:'Marine Life', text:'Ocean health, coral reefs, and plastic pollution. Learn how simple actions protect marine animals.', link: '../ClimateChange.html' },
+  {title:'Forests & Trees', text:'Forests are the lungs of the Earth. Reforestation, biodiversity and community forests matter.', link: '../ClimateChange.html' },
+  {title:'Climate Change', text:'Causes, effects, and what students can do: reduce waste, save energy, learn more.', link: '../ClimateChange.html' },
+  {title:'Air & Atmosphere', text:'Air quality, emissions, and ways to reduce local pollution.',link: '../ClimateChange.html' ,},
+  {title:'Soil & Land', text:'Soil health, sustainable farming, and preventing erosion.',link: '../ClimateChange.html' },
+  {title:'Energy & Renewables', text:'How renewable energy sources reduce emissions and help communities.', link: '../ClimateChange.html' }
 ];
 
 const FACTS = [
+  
   'Around 8 million tonnes of plastic enter the oceans each year.',
   'A single mature tree can absorb up to 48 pounds of CO₂ per year.',
   'Small daily actions (like turning off lights) can reduce household emissions.',
   'Composting food scraps reduces methane from landfills.',
-  'Switching a bulb to LED can save significant energy over its lifetime.'
+  'Switching a bulb to LED can save significant energy over its lifetime.',
+  'Coral reefs support about 25% of all marine life.'
 ];
 
 const CHALLENGES = [
@@ -39,7 +41,7 @@ function populateCards(){
   ENV_CARDS.forEach(c=>{
     const el = document.createElement('div'); el.className = 'card';
     el.innerHTML = `<div><h4>${c.title}</h4><p>${c.text}</p></div>
-      <div style="margin-top:12px"><a class="btn ghost" href="#facts">Read more</a></div>`;
+      <div style="margin-top:12px"><a class="btn ghost" href="${c.link}">Read more</a></div>`;
     container.appendChild(el);
   });
 }
