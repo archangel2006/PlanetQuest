@@ -37,7 +37,7 @@ Our goal is to educate users (especially students) about environmental issues (p
 ❓ Environmental Quizzes
 
 ---
-<!-- ## 📸 App Preview
+ ## 📸 App Preview
 
 > This app is hosted on
 
@@ -45,7 +45,9 @@ Access it here:
 
 Video: 
 
-Screenshots: -->
+Screenshots: 
+<img width="1894" height="817" alt="image" src="https://github.com/user-attachments/assets/af37ac32-cd08-46cd-a61b-5b0fbd44609e" />
+
 
 
 ---
@@ -55,7 +57,6 @@ Screenshots: -->
 |--------------|-------------------------------|
 | Frontend     | HTML, CSS                     |
 | Logic & Interactivity | JavaScript               |
-| Hosting      | GitHub Pages / Static Web     |
 
 ---
 ## 📁 Project Structure
@@ -63,33 +64,16 @@ Screenshots: -->
 ```
     PlanetQuest/
     │
-    ├── index.html           ← Main homepage
-    ├── learn.html           ← Info cards / topics
-    ├── quiz.html            ← Interactive quiz
-    ├── activities.html      ← Challenges / to-do / creative actions
-    ├── tracker.html         ← Simple tracker or checklist
-    ├── about.html           ← About the project / credits
-    │
-    ├── css/
-    │   └── style.css        ← Main stylesheet
-    │
-    ├── js/
-    │   ├── script.js        ← Shared JS (for nav, scroll effects etc.)
-    │   ├── quiz.js          ← Quiz logic
-    │   ├── data.js          ← Array of cards/questions/etc
-    │
-    ├── assets/
-    │   ├── images/          ← All icons/images used
-    │   └── audio/           ← Optional sound effects or ambience
-    │
-    └── README.md            ← Brief description for submission
+    ├── index.html           # homepage
+    ├── style.css            # stylesheet
+    ├── script.js            # interactivity/logic
+    ├── assets/              # icons/images used
+    └── README.md           
 
 ```
 ---
 
 ## 👤 Author
-
-## Author
 
 - Hackathon: 🐼 Pandas Hacks 2025
 - Name: Vaibhavi Srivastava
