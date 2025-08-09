@@ -70,9 +70,11 @@ Screenshots:
     PlanetQuest/
     │
     ├── index.html           # homepage
+    ├── EnvironmentPages/    # Environmental topics pages
     ├── style.css            # stylesheet
     ├── script.js            # interactivity/logic
     ├── assets/              # icons/images used
+    ├── Draft/               # sample/draft codes
     └── README.md           
 
 ```
