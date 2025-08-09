@@ -37,18 +37,25 @@ Our goal is to educate users (especially students) about environmental issues (p
 ❓ Environmental Quizzes
 
 ---
- ## 📸 App Preview
+ ## 📸 Website Preview
 
 > This app is hosted on
 
-Access it here: 
+Access it here: https://planetquest.netlify.app/
+Alternate : https://68977d26dfb9d90008decd5d--planetquest.netlify.app/
+
+Disclaimer: Animations on the webiste will take a few seconds to load.... so you can wait a bit for a smoother experience.
 
 Video: 
 
 Screenshots: 
 <img width="1894" height="817" alt="image" src="https://github.com/user-attachments/assets/af37ac32-cd08-46cd-a61b-5b0fbd44609e" />
 
+<img width="1884" height="873" alt="image" src="https://github.com/user-attachments/assets/555e54e9-327f-40ab-a1bc-c9477828f0bf" />
 
+<img width="1892" height="849" alt="image" src="https://github.com/user-attachments/assets/e3c9b280-81a6-4d9e-8536-ea392fcac4d2" />
+
+<img width="1887" height="889" alt="image" src="https://github.com/user-attachments/assets/6d215138-520b-4608-a3e2-c3120ee2b3b0" />
 
 ---
 ## 🛠️ Tech Stack
