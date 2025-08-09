@@ -39,14 +39,12 @@ Our goal is to educate users (especially students) about environmental issues (p
 ---
  ## 📸 Website Preview
 
-> This app is hosted on
-
-Access it here: https://planetquest.netlify.app/
-Alternate : https://68977d26dfb9d90008decd5d--planetquest.netlify.app/
+- Access it here: https://planetquest.netlify.app/
+- Alternate : https://68977d26dfb9d90008decd5d--planetquest.netlify.app/
 
 Disclaimer: Animations on the webiste will take a few seconds to load.... so you can wait a bit for a smoother experience.
 
-Video: 
+Video Demo: https://youtu.be/f-OSW2Ma04c
 
 Screenshots: 
 <img width="1894" height="817" alt="image" src="https://github.com/user-attachments/assets/af37ac32-cd08-46cd-a61b-5b0fbd44609e" />
