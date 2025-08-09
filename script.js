@@ -1,12 +1,12 @@
 // PlanetQuest - main JS
 // Data sets (cards, facts, quiz)
 const ENV_CARDS = [
-  {title:'Marine Life', text:'Ocean health, coral reefs, and plastic pollution. Learn how simple actions protect marine animals.', link: '../ClimateChange.html' },
-  {title:'Forests & Trees', text:'Forests are the lungs of the Earth. Reforestation, biodiversity and community forests matter.', link: '../ClimateChange.html' },
-  {title:'Climate Change', text:'Causes, effects, and what students can do: reduce waste, save energy, learn more.', link: '../ClimateChange.html' },
-  {title:'Air & Atmosphere', text:'Air quality, emissions, and ways to reduce local pollution.',link: '../ClimateChange.html' ,},
-  {title:'Soil & Land', text:'Soil health, sustainable farming, and preventing erosion.',link: '../ClimateChange.html' },
-  {title:'Energy & Renewables', text:'How renewable energy sources reduce emissions and help communities.', link: '../ClimateChange.html' }
+  {title:'Marine Life', text:'Ocean health, coral reefs, and plastic pollution. Learn how simple actions protect marine animals.', link: 'EnvironmentPages/ClimateChange.html' },
+  {title:'Forests & Trees', text:'Forests are the lungs of the Earth. Reforestation, biodiversity and community forests matter.', link: 'EnvironmentPages/ClimateChange.html' },
+  {title:'Climate Change', text:'Causes, effects, and what students can do: reduce waste, save energy, learn more.', link: 'EnvironmentPages/ClimateChange.html' },
+  {title:'Air & Atmosphere', text:'Air quality, emissions, and ways to reduce local pollution.',link: 'EnvironmentPages/ClimateChange.html' ,},
+  {title:'Soil & Land', text:'Soil health, sustainable farming, and preventing erosion.',link: 'EnvironmentPages/ClimateChange.html' },
+  {title:'Energy & Renewables', text:'How renewable energy sources reduce emissions and help communities.', link: 'EnvironmentPages/ClimateChange.html' }
 ];
 
 const FACTS = [
