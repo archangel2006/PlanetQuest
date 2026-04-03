@@ -4,66 +4,44 @@
 - Explore. Quiz. Track. Change the world — one mission at a time.  
 - PlanetQuest makes environmental education fun, interactive, and meaningful.
 
-![PlanetQuest Banner](https://img.shields.io/badge/Planet%20Quest-Environmental%20Awareness%20Tool-green) ![Built With](https://img.shields.io/badge/Built%20With-JavaScript-blue?style=plastic&logo=javascript) ![Frontend](https://img.shields.io/badge/Frontend-HTML%2FCSS-orange?style=plastic&logo=html5) ![Hackathon](https://img.shields.io/badge/Panda%20Hacks-2025-yellow?style=plastic&logo=github) ![Eco-Friendly](https://img.shields.io/badge/Eco--Friendly-%F0%9F%8C%B1%20YES-brightgreen?style=plastic&logo=leaf) ![License](https://img.shields.io/badge/License-Proprietary-red?style=plastic&logo=firefox)
+![PlanetQuest Banner](https://img.shields.io/badge/Planet%20Quest-Environmental%20Awareness%20Tool-green) ![Built With](https://img.shields.io/badge/Built%20With-JavaScript-blue?style=plastic&logo=javascript) ![Frontend](https://img.shields.io/badge/Frontend-HTML%2FCSS-orange?style=plastic&logo=html5) ![Eco-Friendly](https://img.shields.io/badge/Eco--Friendly-%F0%9F%8C%B1%20YES-brightgreen?style=plastic&logo=leaf) ![License](https://img.shields.io/badge/License-MIT-green?style=plastic)
 
 ---
-## 📌 Project Overview
+## 📌 Project Overview & Goal
 
-**PlanetQuest** is a beginner-friendly, interactive web application designed to spread **eco-awareness** through learning, quizzes, and daily challenges.  
-It combines fun visuals, bite-sized knowledge, and simple actions to help users become better caretakers of our planet.
+**PlanetQuest** is an interactive web application built to promote eco-awareness through simple, engaging experiences.
 
-Whether you're a student, an educator, or just curious — this platform makes **environmental education engaging and rewarding.**
+It focuses on making environmental learning accessible and action-driven by combining:
+- structured topic exploration  
+- quick quizzes for reinforcement  
+- small, practical eco-actions  
 
----
-
-## 🎯 Goal
-
-- PlanetQuest aims to raise awareness about pressing environmental issues by making learning interactive, fun, and actionable.  
-- We believe that **small steps taken consistently by informed individuals can lead to big changes** — and this project encourages exactly that.  
-- It's more than just a game — it's a call to explore, learn, and act for the planet.
+The goal is to encourage consistent, informed actions by showing that even small steps can contribute to meaningful environmental impact.
 
 ---
 
 ## 🚀 Features
 
-Our goal is to educate users (especially students) about environmental issues (pollution, biodiversity, energy, climate, sustainability) in a fun and engaging ways. Features include: 
+PlanetQuest focuses on delivering a simple and engaging learning experience:
 
-📚 Explore the Planet & their Issues
-
-📊 Environmental Facts & News
-
-🎯 Daily Eco-Challenges
-
-❓ Environmental Quizzes
-
----
- ## 📸 Website Preview
-
-- Access it here: https://planetquest.netlify.app/
-- Alternate : https://68977d26dfb9d90008decd5d--planetquest.netlify.app/
-
-Disclaimer: Animations on the webiste will take a few seconds to load.... so you can wait a bit for a smoother experience.
-
-Video Demo: https://youtu.be/f-OSW2Ma04c
-
-Screenshots: 
-<img width="1894" height="817" alt="image" src="https://github.com/user-attachments/assets/af37ac32-cd08-46cd-a61b-5b0fbd44609e" />
-
-<img width="1884" height="873" alt="image" src="https://github.com/user-attachments/assets/555e54e9-327f-40ab-a1bc-c9477828f0bf" />
-
-<img width="1892" height="849" alt="image" src="https://github.com/user-attachments/assets/e3c9b280-81a6-4d9e-8536-ea392fcac4d2" />
-
-<img width="1887" height="889" alt="image" src="https://github.com/user-attachments/assets/6d215138-520b-4608-a3e2-c3120ee2b3b0" />
+- **🌱 Interactive Learning:** Explore environmental topics through structured, easy-to-understand content  
+- **📝 Quizzes:** Test your knowledge with quick, interactive questions  
+- **📊 Bite-Sized Insights:** Learn through short facts without long reading  
+- **🎯 Eco Challenges:** Take small actions that connect learning to real impact  
+- **🎨 Clean Interface:** Minimal design for a calm and distraction-free experience
 
 ---
 ## 🛠️ Tech Stack
 
-| Purpose       | Tools / Languages Used         |
-|--------------|-------------------------------|
-| Frontend     | HTML, CSS                     |
-| Logic & Interactivity | JavaScript               |
+<p align="center">
 
+<img src="https://img.shields.io/badge/HTML-Structure-orange?style=for-the-badge&logo=html5" />
+<img src="https://img.shields.io/badge/CSS-Design-blue?style=for-the-badge&logo=css3" />
+<img src="https://img.shields.io/badge/JavaScript-Interactivity-yellow?style=for-the-badge&logo=javascript" />
+
+</p>
 ---
+
 ## 📁 Project Structure
 
 ```
@@ -74,14 +52,44 @@ Screenshots:
     ├── style.css            # stylesheet
     ├── script.js            # interactivity/logic
     ├── assets/              # icons/images used
-    ├── Draft/               # sample/draft codes
     └── README.md           
 
 ```
 ---
 
-## 👤 Author
+## ⚙️ Setup & Run Locally
 
-- Hackathon: 🐼 Pandas Hacks 2025
-- Name: Vaibhavi Srivastava
-- Github: [archangel2006](https://github.com/archangel2006)
+Getting started with PlanetQuest is simple:
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/YOUR_USERNAME/PlanetQuest.git
+cd PlanetQuest
+```
+
+### 2. Open in Browser
+Just open index.html in your browser.
+
+---
+
+**🔗 Live Demo**: https://planetquest.netlify.app/
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions to improve PlanetQuest and make environmental learning more interactive and impactful.
+
+Before getting started, please read our contribution guidelines: 👉 [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+### Quick Steps
+
+1. Fork the repository  
+2. Create a new branch  
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Make your changes
+4. Commit and push
+5. Open a Pull Request
+
