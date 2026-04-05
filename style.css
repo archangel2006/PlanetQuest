@@ -70,12 +70,6 @@ body{
 
 
 /* -------------ENVIRONMENT---------------*/
-/*.section{padding:28px 0}
-.section.light{background:linear-gradient(180deg, #f4fff3 0%, transparent 100%);}
-h3{margin:0 0 8px;font-size:20px}
-.muted{color:var(--muted)}
-.small{font-size:13px} */
-
 
 .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
 .card-grid.small{grid-template-columns:repeat(3,1fr)}
@@ -91,6 +85,14 @@ h3{margin:0 0 8px;font-size:20px}
 .card-grid .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);}
+
+  
+/*---------ENVIRONEMENT PAGES----------*/
+.highlight {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
 
 /*---------CHALLENGE----------*/
 .challenge-box{background:var(--card);padding-left:18px; padding:10px;border-radius:12px;box-shadow:var(--shadow); display: flex;
