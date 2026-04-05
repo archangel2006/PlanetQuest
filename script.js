@@ -34,6 +34,7 @@ const QUIZ = [
   {q:'Which action saves water at home?', options:['Running the tap while brushing','Fixing leaks','Washing car every day','Keeping sprinklers on'], ans:'Fixing leaks'}
 ];
 
+
 // ---------- UI population ----------
 function populateCards(){
   const container = document.getElementById('cards');
@@ -45,7 +46,12 @@ function populateCards(){
     container.appendChild(el);
   });
 }
-
+document.addEventListener("DOMContentLoaded", () => {
+  const yearElement = document.getElementById("year");
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+});
 function populateFacts(){
   const fgrid = document.getElementById('factsGrid');
   fgrid.innerHTML='';
