@@ -93,6 +93,26 @@ body{
   font-weight: 600;
 }
 
+/* -------- ENVIRONMENT PAGE LAYOUT -------- */
+.env-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.env-image img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.env-content {
+  flex: 1;
+}
+
 
 /*---------CHALLENGE----------*/
 .challenge-box{background:var(--card);padding-left:18px; padding:10px;border-radius:12px;box-shadow:var(--shadow); display: flex;
