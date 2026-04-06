@@ -12,6 +12,27 @@
   --glass: rgba(255,255,255,0.6);
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
+
+/* -----------GLOBAL SCROLL SETTINGS-------------*/
+
+/*Ensures anchor navigation (Navbar links) aligns correctly 
+  and transitions smoothly without being hidden by the fixed header.
+*/
+
+html {
+  /* Provides a smooth gliding effect instead of an instant jump when clicking links */
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  /* OFFSET FOR FIXED HEADER:
+    Because the header is 'position: fixed', it sits on top of the content.
+    This property creates a 100px 'buffer' at the top of every section 
+    so the heading starts exactly below the navbar.
+  */
+  scroll-margin-top: 100px; 
+}
+
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
