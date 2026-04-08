@@ -31,7 +31,16 @@ const QUIZ = [
   {q:'Which gas is the primary driver of current climate change?', options:['Oxygen','Carbon Dioxide','Nitrogen','Helium'], ans:'Carbon Dioxide'},
   {q:'Which of the following is a renewable energy source?', options:['Coal','Wind','Natural Gas','Oil'], ans:'Wind'},
   {q:'Composting helps reduce which greenhouse gas from landfills?', options:['CO2','Methane (CH4)','Nitrous Oxide','Ozone'], ans:'Methane (CH4)'},
-  {q:'Which action saves water at home?', options:['Running the tap while brushing','Fixing leaks','Washing car every day','Keeping sprinklers on'], ans:'Fixing leaks'}
+  {q:'Which action saves water at home?', options:['Running the tap while brushing','Fixing leaks','Washing car every day','Keeping sprinklers on'], ans:'Fixing leaks'},
+
+  // Marine Conservation Questions
+  {q: 'Which of the following is a major threat to marine life?',options: ['Air pollution','Plastic waste in oceans','Soil erosion','Deforestation'],ans: 'Plastic waste in oceans'},
+  {q: 'What is the main source of plastic pollution in oceans?',options: ['Fishing nets','Household waste','Space debris','Volcanoes'],ans: 'Household waste'},
+  {q: 'What is a marine protected area (MPA)?',options: ['A place where only ships can go','A protected region in oceans to conserve biodiversity','A fishing zone','A tourist beach'],ans: 'A protected region in oceans to conserve biodiversity'},
+  {q: 'What are coral reefs often called because of their rich biodiversity?',options: ['Blue forests','Rainforests of the sea','Ocean deserts','Marine parks'],ans: 'Rainforests of the sea'},
+  {q: 'Which gas, when absorbed by oceans, leads to ocean acidification?',options: ['Oxygen','Nitrogen','Carbon dioxide','Hydrogen'],ans: 'Carbon dioxide'},
+  {q: 'Why are mangroves important for marine conservation?',options: ['They increase ocean salinity','They act as breeding grounds and protect coastlines','They reduce oxygen','They attract storms'],ans: 'They act as breeding grounds and protect coastlines'},
+  {q: 'What surprising role do whales play in ocean ecosystems?',options: ['They reduce oxygen','They help circulate nutrients through their movement and waste','They destroy coral reefs','They increase pollution'],ans: 'They help circulate nutrients through their movement and waste'}
 ];
 
 // ---------- UI population ----------
