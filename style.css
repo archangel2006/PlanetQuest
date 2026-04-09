@@ -39,7 +39,7 @@ body{
 
 /* ------------- HEADER ------------- */
 
-.site-header{background: linear-gradient(0deg, var(--accent), var(--accent-2));; box-shadow: 0 4px 12px rgba(7, 56, 15, 0.1);border-bottom:1px solid rgba(6, 53, 9, 0.04); padding:8px 28px; position: fixed; top:0; width: 100%; z-index:100; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; }
+.site-header{background: linear-gradient(0deg, var(--accent), var(--accent-2)); box-shadow: 0 4px 12px rgba(7, 56, 15, 0.1);border-bottom:1px solid rgba(6, 53, 9, 0.04); padding:8px 28px; position: fixed; top:0; width: 100%; z-index:100; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; }
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:3px 0}
 .brand{display:flex;gap:12px;align-items:center}
 .logo{width:60px;height:60px;border-radius:100px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-size:24px;box-shadow:var(--shadow)}
@@ -101,34 +101,150 @@ body{
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);}
 
   
-/*---------ENVIRONEMENT PAGES----------*/
+/* --------- ENVIRONMENT PAGES --------- */
+:root {
+  --logo-green: #83CF8F; 
+  --dark-green: #1c722b; /* Project variable --accent-3 */
+  --bento-green: #f4fff3;
+  --bento-blue: #f0f7ff;
+}
+
 .highlight {
   color: #2e7d32;
   font-weight: 600;
 }
 
-/* -------- ENVIRONMENT PAGE LAYOUT -------- */
-.env-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  max-width: 900px;
+#climate-change h1, 
+#climate-change h2, 
+#climate-change h3, 
+#climate-change h4 {
+  color: var(--dark-green);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+#climate-change p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+#climate-change h1 { font-size: 2.5rem; }
+#climate-change h3 { font-size: 1.5rem; }
+
+/* --- Master Wrapper --- */
+#climate-change.container {
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 2rem;
+  padding-top: 100px; /* Moved from inline */
 }
 
-.env-image img {
+/* --- Asymmetric Hero Grid --- */
+.env-hero-grid {
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  grid-template-areas: 
+    "intro image"
+    "why image";
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.env-intro-area {
+  grid-area: intro;
+  align-self: end;
+}
+
+.env-why-area {
+  grid-area: why;
+}
+
+.env-hero-image-area {
+  grid-area: image;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.env-hero-image-area img {
   width: 100%;
-  max-width: 350px;
-  border-radius: 10px;
-  object-fit: cover;
+  max-width: 450px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease;
 }
 
-.env-content {
+.env-hero-image-area img:hover {
+  transform: scale(1.03);
+}
+
+/* --- Why It Matters Cards --- */
+.env-why-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.env-why-item {
   flex: 1;
+  background: white;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.env-why-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
 
-/*---------CHALLENGE----------*/
+.env-why-item strong {
+  display: block;
+  color: var(--dark-green);
+  margin-bottom: 0.3rem;
+}
+
+/* --- Bento Action Cards --- */
+.env-bento-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 1.5rem;
+}
+
+.env-bento-card {
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(47, 139, 62, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.env-bento-card:hover {
+  transform: translateY(-5px);
+}
+
+.env-bento-card.tint-green { background: var(--bento-green); }
+.env-bento-card.tint-blue { background: var(--bento-blue); }
+
+.env-bento-card h4 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: var(--dark-green);
+}
+
+.env-bento-card ul, .env-bento-card ol {
+  padding-left: 1.2rem;
+  display: flex; /* Moved from inline */
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* --------- CHALLENGE --------- */
 .challenge-box{background:var(--card);padding-left:18px; padding:10px;border-radius:12px;box-shadow:var(--shadow); display: flex;
   align-items: center;
   justify-content: space-between;
@@ -147,13 +263,7 @@ body{
   border-radius: 200px;
 }
 
-/*---------DID YOU KNOW?------------ */
-
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.mini-list{margin:8px 0 30px;padding-left:18px;color:var(--muted)}
-
-/* ------ QUIZ ------ */
-
+/* --------- QUIZ --------- */
 #quiz {background: linear-gradient(180deg, #f4fff3 0%, transparent 100%);;padding: 2rem 1rem;border-radius: 0 0 16px 16px;}
 .quiz-scroll {display: flex;overflow-x: auto;gap: 1rem; padding: 1rem 0;scroll-snap-type: x mandatory;}
 .quiz-card {flex: 0 0 180px; height: 220px; background: white;border-radius: 12px;padding: 0.6rem;box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid #69a873;scroll-snap-align: start;display: flex;flex-direction: column;align-items: center; justify-content: space-between; transition: transform 0.2s ease, box-shadow 0.2s ease;}
@@ -163,7 +273,7 @@ body{
 .quiz-card button { padding: 0.3rem 0.6rem; font-size: 0.8rem;}
 .quiz-card:hover {transform: scale(1.02);box-shadow: 0 8px 20px rgba(0,0,0,0.15);}
 
-/* ---------Modal---------  */
+/* --------- MODAL --------- */
 .modal {
   display: none; 
   position: fixed;
@@ -195,8 +305,7 @@ body{
   color: #e74c3c;
 }
 
-/*----------------QUIZ-----------------*/
-
+/* --------- QUIZ AREA --------- */
 .quiz-area{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
 #options{display:flex;flex-direction:column;gap:8px;margin-top:12px}
 .option{
@@ -205,7 +314,7 @@ body{
 .option.selected{border-color:var(--accent);background:linear-gradient(90deg,#f4fff3,#ecfff0)}
 .quiz-controls{margin-top:12px;display:flex;gap:8px}
 
-/*----------------FACTS------------------ */
+/* --------- FACTS --------- */
 #facts{margin-top:20px;}
 .card-grid.small .card{min-height:90px}
 #factsGrid > div,
@@ -216,9 +325,7 @@ body{
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-
-/* -------- JOIN PLANET QUEST------------ */
-
+/* --------- JOIN PLANET QUEST --------- */
 .join-container {display: flex;align-items: center;gap: 1rem;flex-wrap: wrap;}
 .join-image {flex: 1;text-align: center;}
 .join-content {flex: 1;}
@@ -226,10 +333,7 @@ body{
 .join-content h3 {font-size: 1.6rem;margin-bottom: 0.5rem;}
 .join-content .tagline {font-weight: bold; font-size: 1.1rem; color: var(--accent); margin-bottom: 0.8rem;}
 
-
-
-/* ----FOOTER ------ */
-
+/* --------- FOOTER --------- */
 .site-footer{
   background: linear-gradient(180deg, var(--accent-2), var(--accent));
   box-shadow: 0 -4px 12px rgba(7, 56, 15, 0.08);
@@ -244,10 +348,29 @@ body{
   z-index: 10;
 }
 
+/* --------- RESPONSIVE DESIGN --------- */
 @media (max-width:880px){
   .hero-inner{flex-direction:column;align-items:flex-start}
   .card-grid{grid-template-columns:repeat(2,1fr)}
   .footer-inner{flex-direction:column;align-items:flex-start;gap:8px}
+
+  /* Environment Grid Mobile Logic */
+  .env-hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "intro"
+      "image"
+      "why";
+    text-align: center;
+  }
+  
+  .env-why-list {
+    flex-direction: column;
+  }
+
+  .env-bento-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width:520px){
@@ -260,7 +383,7 @@ body{
 .explore-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* padding on top */
+  margin-top: 20px;
 }
 
 .explore-btn {
@@ -330,165 +453,7 @@ main.container {
   transform: scale(1.05);
 }
 
-#facts {
-  margin-top: 20px;
-}
-
 #news {
   margin-top: 50px;
-}
-
-/* --- TYPOGRAPHY STANDARDIZATION --- */
-:root {
-  --logo-green: #83CF8F; 
-  --dark-green: #1c722b; /* Project variable --accent-3 */
-  --bento-green: #f4fff3;
-  --bento-blue: #f0f7ff;
-}
-
-#climate-change h1, 
-#climate-change h2, 
-#climate-change h3, 
-#climate-change h4 {
-  color: var(--dark-green);
-  font-weight: 700;
-  margin-bottom: 0.5rem; /* Compact margins */
-}
-
-#climate-change p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-#climate-change h1 { font-size: 2.5rem; }
-#climate-change h3 { font-size: 1.5rem; }
-
-/* --- MASTER WRAPPER --- */
-#climate-change.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-/* --- ASYMMETRIC HERO GRID --- */
-.env-hero-grid {
-  display: grid;
-  grid-template-columns: 6fr 4fr;
-  grid-template-areas: 
-    "intro image"
-    "why image";
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.env-intro-area {
-  grid-area: intro;
-  align-self: end; /* Pull text towards Row 2 */
-}
-
-.env-why-area {
-  grid-area: why;
-}
-
-.env-hero-image-area {
-  grid-area: image;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.env-hero-image-area img {
-  width: 100%;
-  max-width: 450px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  transition: transform 0.4s ease; /* Smooth transition */
-}
-
-.env-hero-image-area img:hover {
-  transform: scale(1.03); /* Subtle zoom */
-}
-
-/* --- WHY IT MATTERS - COMPACT CARDS --- */
-.env-why-list {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.env-why-item {
-  flex: 1;
-  background: white;
-  padding: 1.2rem;
-  border-radius: 12px;
-  border-left: 4px solid var(--accent);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-  font-size: 0.9rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.env-why-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-.env-why-item strong {
-  display: block;
-  color: var(--dark-green);
-  margin-bottom: 0.3rem;
-}
-
-/* --- BENTO ACTION CARDS --- */
-.env-bento-grid {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 1.5rem;
-}
-
-.env-bento-card {
-  padding: 2rem;
-  border-radius: 16px;
-  border: 1px solid rgba(47, 139, 62, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.env-bento-card:hover {
-  transform: translateY(-5px);
-}
-
-.env-bento-card.tint-green { background: var(--bento-green); }
-.env-bento-card.tint-blue { background: var(--bento-blue); }
-
-.env-bento-card h4 {
-  margin-top: 0;
-  font-size: 1.3rem;
-  color: var(--dark-green);
-}
-
-.env-bento-card ul, .env-bento-card ol {
-  padding-left: 1.2rem;
-}
-
-/* --- MOBILE LOGIC --- */
-@media (max-width: 880px) {
-  .env-hero-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-      "intro"
-      "image"
-      "why";
-    text-align: center;
-  }
-  
-  .env-why-list {
-    flex-direction: column;
-  }
-
-  .env-bento-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
