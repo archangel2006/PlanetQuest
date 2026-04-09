@@ -25,6 +25,9 @@ section[id] {
 
 *{box-sizing:border-box}
 html,body{height:100%}
+html, body {
+  overscroll-behavior: none;
+}
 body{
   margin:0;
   background:var(--bg);
@@ -333,5 +336,159 @@ main.container {
 
 #news {
   margin-top: 50px;
+}
+
+/* --- TYPOGRAPHY STANDARDIZATION --- */
+:root {
+  --logo-green: #83CF8F; 
+  --dark-green: #1c722b; /* Project variable --accent-3 */
+  --bento-green: #f4fff3;
+  --bento-blue: #f0f7ff;
+}
+
+#climate-change h1, 
+#climate-change h2, 
+#climate-change h3, 
+#climate-change h4 {
+  color: var(--dark-green);
+  font-weight: 700;
+  margin-bottom: 0.5rem; /* Compact margins */
+}
+
+#climate-change p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+#climate-change h1 { font-size: 2.5rem; }
+#climate-change h3 { font-size: 1.5rem; }
+
+/* --- MASTER WRAPPER --- */
+#climate-change.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* --- ASYMMETRIC HERO GRID --- */
+.env-hero-grid {
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  grid-template-areas: 
+    "intro image"
+    "why image";
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.env-intro-area {
+  grid-area: intro;
+  align-self: end; /* Pull text towards Row 2 */
+}
+
+.env-why-area {
+  grid-area: why;
+}
+
+.env-hero-image-area {
+  grid-area: image;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.env-hero-image-area img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease; /* Smooth transition */
+}
+
+.env-hero-image-area img:hover {
+  transform: scale(1.03); /* Subtle zoom */
+}
+
+/* --- WHY IT MATTERS - COMPACT CARDS --- */
+.env-why-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.env-why-item {
+  flex: 1;
+  background: white;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.env-why-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.env-why-item strong {
+  display: block;
+  color: var(--dark-green);
+  margin-bottom: 0.3rem;
+}
+
+/* --- BENTO ACTION CARDS --- */
+.env-bento-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 1.5rem;
+}
+
+.env-bento-card {
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(47, 139, 62, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.env-bento-card:hover {
+  transform: translateY(-5px);
+}
+
+.env-bento-card.tint-green { background: var(--bento-green); }
+.env-bento-card.tint-blue { background: var(--bento-blue); }
+
+.env-bento-card h4 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: var(--dark-green);
+}
+
+.env-bento-card ul, .env-bento-card ol {
+  padding-left: 1.2rem;
+}
+
+/* --- MOBILE LOGIC --- */
+@media (max-width: 880px) {
+  .env-hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "intro"
+      "image"
+      "why";
+    text-align: center;
+  }
+  
+  .env-why-list {
+    flex-direction: column;
+  }
+
+  .env-bento-grid {
+    grid-template-columns: 1fr;
+  }
 }
 

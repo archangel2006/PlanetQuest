@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../style.css">  <!-- keep this at root with index.html -->
   <meta name="description" content="Climate Change — learn why it matters and small actions you can take.">
 </head>
-<body>
+<body class="no-rubber-band">
 
   <!-- HEADER (logo is clickable -> index.html) -->
   <header class="site-header">
@@ -27,46 +27,65 @@
   </header>
 
   <!-- MAIN -->
-  <main class="container" style="padding-top:90px"> <!-- ensures header overlap is prevented -->
-    <!-- CLIMATE -->
-    <section class="section">
-        <div class="env-container">
-            
-            <!-- Left: Content -->
-            <div class="env-content">
+  <main id="climate-change" class="container" style="padding-top:100px">
+    
+    <!-- Asymmetric Integrated Hero Grid -->
+    <div class="env-hero-grid">
+        
+        <!-- Top Left: Intro -->
+        <div class="env-intro-area">
             <h1>Climate Change</h1>
             <p>
               Climate change refers to <span class="highlight">long-term shifts</span> in global temperatures and weather patterns. 
-              While some changes are natural, modern warming is driven mainly by 
-              <span class="highlight">human activities</span>, especially burning 
-              <span class="highlight">fossil fuels</span> and deforestation.
+              Modern warming is driven mainly by <span class="highlight">human activities</span>, especially burning fossil fuels and deforestation.
             </p>
-            
-            <h4>Why it matters</h4>
-            <ul>
-                <li>Melting ice and rising sea levels threaten coastal communities.</li>
-                <li>Extreme weather events like storms, heatwaves, and droughts are increasing.</li>
-                <li>Shifts in habitats and food supply affect biodiversity and livelihoods.</li>
-            </ul>
-
-            <h4>What you can do</h4>
-            <ol>
-                <li><span class="highlight">Reduce energy use</span>: switch off unused lights, choose efficient appliances.</li>
-                <li><span class="highlight">Travel smart</span>: walk, cycle, carpool, or use public transport where possible.</li>
-                <li>Support <span class="highlight">renewable energy and sustainable policies</span> in your community.</li>
-            </ol>
-
-            <h4>Did you know?</h4>
-            <p>Human activities have caused the Earth's average temperature to rise by about 1.1°C since the late 19th century.</p>
-            </div>
-
-            <!-- Right: Illustration -->
-            <div class="env-image">
-            <img src="ClimateChange.png" alt="Climate change illustration" />
-            </div>
-
         </div>
-        </section>
+
+        <!-- Bottom Left: Compact Transition -->
+        <div class="env-why-area">
+            <h3 style="margin-top: 0; margin-bottom: 1rem; color: var(--dark-green);">Why it matters</h3>
+            <ul class="env-why-list">
+                <li class="env-why-item">
+                    <strong>Sea Level Rise</strong>
+                    Threatens coastal communities worldwide.
+                </li>
+                <li class="env-why-item">
+                    <strong>Extreme Weather</strong>
+                    Heatwaves and droughts are increasing.
+                </li>
+                <li class="env-why-item">
+                    <strong>Ecosystem Shifts</strong>
+                    Changes in habitat affect biodiversity.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Right: Spanning Illustration -->
+        <div class="env-hero-image-area">
+            <img src="ClimateChange.png" alt="Climate change illustration" />
+        </div>
+
+    </div>
+
+    <!-- Bento Box Action Cards -->
+    <div class="env-bento-grid">
+        <div class="env-bento-card tint-green">
+            <h4>What you can do</h4>
+            <ol style="display: flex; flex-direction: column; gap: 0.8rem;">
+                <li><span class="highlight">Reduce energy use</span>: switch off lights and choose efficient appliances.</li>
+                <li><span class="highlight">Travel smart</span>: walk, cycle, or use public transport where possible.</li>
+                <li>Support <span class="highlight">renewable energy</span> and sustainable policies locally.</li>
+            </ol>
+        </div>
+
+        <div class="env-bento-card tint-blue">
+            <h4>Did you know?</h4>
+            <p>The Earth's average temperature has risen by about 1.1°C since the late 19th century.</p>
+            <p style="font-style: italic; font-size: 0.9rem; color: var(--muted); margin-top: 1rem;">
+                Even small changes can lead to large, dangerous shifts in global climate patterns.
+            </p>
+        </div>
+    </div>
 
   </main>
 
