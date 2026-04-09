@@ -1,98 +1,56 @@
-// PlanetQuest - main JS
-// Data sets (cards, facts, quiz)
-const ENV_CARDS = [
-  {title:'Marine Life', text:'Ocean health, coral reefs, and plastic pollution. Learn how simple actions protect marine animals.', link: 'EnvironmentPages/ClimateChange.html' },
-  {title:'Forests & Trees', text:'Forests are the lungs of the Earth. Reforestation, biodiversity and community forests matter.', link: 'EnvironmentPages/ClimateChange.html' },
-  {title:'Climate Change', text:'Causes, effects, and what students can do: reduce waste, save energy, learn more.', link: 'EnvironmentPages/ClimateChange.html' },
-  {title:'Air & Atmosphere', text:'Air quality, emissions, and ways to reduce local pollution.',link: 'EnvironmentPages/ClimateChange.html' ,},
-  {title:'Soil & Land', text:'Soil health, sustainable farming, and preventing erosion.',link: 'EnvironmentPages/ClimateChange.html' },
-  {title:'Energy & Renewables', text:'How renewable energy sources reduce emissions and help communities.', link: 'EnvironmentPages/ClimateChange.html' }
-];
+// --- NEW: QUIZZES Object holding multiple topics ---
+const QUIZZES = {
+  // 'default' acts as the fallback for buttons without a data-topic
+  default: [
+    {q:'Which gas is the primary driver of current climate change?', options:['Oxygen','Carbon Dioxide','Nitrogen','Helium'], ans:'Carbon Dioxide'},
+    {q:'Which of the following is a renewable energy source?', options:['Coal','Wind','Natural Gas','Oil'], ans:'Wind'},
+    {q:'Composting helps reduce which greenhouse gas from landfills?', options:['CO2','Methane (CH4)','Nitrous Oxide','Ozone'], ans:'Methane (CH4)'},
+    {q:'Which action saves water at home?', options:['Running the tap while brushing','Fixing leaks','Washing car every day','Keeping sprinklers on'], ans:'Fixing leaks'}
+  ],
+  // 'forests' connects to data-topic="forests"
+  forests: [
+    // Q1-Q2: Basic awareness
+    {
+      q: 'What is the main difference between afforestation and reforestation?', 
+      options: ['Afforestation plants trees where there were none recently, while reforestation replaces recently lost trees', 'Afforestation means cutting down trees', 'Reforestation only uses pine trees', 'They are the exact same thing'], 
+      ans: 'Afforestation plants trees where there were none recently, while reforestation replaces recently lost trees'
+    },
+    {
+      q: 'Why are trees often referred to as "carbon sinks"?', 
+      options: ['They produce carbon dioxide at night', 'They absorb and store carbon dioxide from the atmosphere', 'They turn carbon into water', 'They reflect carbon back into space'], 
+      ans: 'They absorb and store carbon dioxide from the atmosphere'
+    },
+    
+    // Q3-Q5: Slightly deeper
+    {
+      q: 'Why is planting a diverse mix of native trees usually better than planting a single species (monoculture)?', 
+      options: ['It grows much faster', 'It is cheaper to plant', 'It creates a more resilient ecosystem that supports local wildlife', 'Single species forests attract too much rain'], 
+      ans: 'It creates a more resilient ecosystem that supports local wildlife'
+    },
+    {
+      q: 'How do newly planted forests help improve local water systems?', 
+      options: ['Tree roots act as natural filters for runoff water and improve groundwater recharge', 'Leaves produce purified water drops', 'Tree bark absorbs salt from the ground', 'Forests completely stop rivers from flooding'], 
+      ans: 'Tree roots act as natural filters for runoff water and improve groundwater recharge'
+    },
+    {
+      q: 'What is the "albedo effect," and how can planting trees in snowy regions sometimes impact it?', 
+      options: ['Trees make snow melt faster by producing heat', 'Dark tree canopies absorb more solar heat than highly reflective white snow', 'Trees block the wind, making the area colder', 'Trees produce heavy clouds that trap heat'], 
+      ans: 'Dark tree canopies absorb more solar heat than highly reflective white snow'
+    },
 
-const FACTS = [
-  
-  'Around 8 million tonnes of plastic enter the oceans each year.',
-  'A single mature tree can absorb up to 48 pounds of CO₂ per year.',
-  'Small daily actions (like turning off lights) can reduce household emissions.',
-  'Composting food scraps reduces methane from landfills.',
-  'Switching a bulb to LED can save significant energy over its lifetime.',
-  'Coral reefs support about 25% of all marine life.'
-];
-
-const CHALLENGES = [
-  'Turn off lights in unused rooms for the whole day.',
-  'Refuse single-use plastic for one day — carry a reusable bottle.',
-  'Pick up 3 pieces of litter in your neighborhood.',
-  'Avoid using the elevator — take stairs for short trips.',
-  'Unplug chargers and devices when not in use.'
-];
-
-const QUIZ = [
-  {q:'Which gas is the primary driver of current climate change?', options:['Oxygen','Carbon Dioxide','Nitrogen','Helium'], ans:'Carbon Dioxide'},
-  {q:'Which of the following is a renewable energy source?', options:['Coal','Wind','Natural Gas','Oil'], ans:'Wind'},
-  {q:'Composting helps reduce which greenhouse gas from landfills?', options:['CO2','Methane (CH4)','Nitrous Oxide','Ozone'], ans:'Methane (CH4)'},
-  {q:'Which action saves water at home?', options:['Running the tap while brushing','Fixing leaks','Washing car every day','Keeping sprinklers on'], ans:'Fixing leaks'}
-];
-
-// ---------- UI population ----------
-function populateCards(){
-  const container = document.getElementById('cards');
-  container.innerHTML = '';
-  ENV_CARDS.forEach(c=>{
-    const el = document.createElement('div'); el.className = 'card';
-    el.innerHTML = `<div><h4>${c.title}</h4><p>${c.text}</p></div>
-      <div style="margin-top:12px"><a class="btn ghost" href="${c.link}">Read more</a></div>`;
-    container.appendChild(el);
-  });
-}
-
-function populateFacts(){
-  const fgrid = document.getElementById('factsGrid');
-  fgrid.innerHTML='';
-  FACTS.slice(0,6).forEach((t,i)=>{
-    const el = document.createElement('div'); el.className='card';
-    el.innerHTML = `<h4>Fact ${i+1}</h4><p class="muted">${t}</p>`;
-    fgrid.appendChild(el);
-  });
-}
-
-// random fact section
-function showRandomFact(){
-  const idx = Math.floor(Math.random()*FACTS.length);
-  document.getElementById('randomFact').textContent = FACTS[idx];
-}
-
-// daily challenge logic
-const CH_KEY = 'planet_challenge_today';
-function getChallenge(){
-  // store a challenge index keyed by date
-  const today = new Date().toISOString().slice(0,10);
-  const stored = JSON.parse(localStorage.getItem(CH_KEY) || '{}');
-  if(stored.date === today && typeof stored.idx === 'number') return stored.idx;
-  // otherwise set new one
-  const idx = Math.floor(Math.random()*CHALLENGES.length);
-  localStorage.setItem(CH_KEY, JSON.stringify({date:today, idx, done:false}));
-  return idx;
-}
-function renderChallenge(){
-  const ci = getChallenge();
-  document.getElementById('todayChallenge').textContent = CHALLENGES[ci];
-  const stored = JSON.parse(localStorage.getItem(CH_KEY) || '{}');
-  document.getElementById('challengeStatus').textContent = stored.done ? 'Completed ✔️' : 'Not done yet';
-}
-document.getElementById('markDone').addEventListener('click', ()=>{
-  const stored = JSON.parse(localStorage.getItem(CH_KEY) || '{}');
-  stored.done = true;
-  localStorage.setItem(CH_KEY, JSON.stringify(stored));
-  renderChallenge();
-});
-document.getElementById('nextChallenge').addEventListener('click', ()=>{
-  // force new random
-  const today = new Date().toISOString().slice(0,10);
-  const idx = Math.floor(Math.random()*CHALLENGES.length);
-  localStorage.setItem(CH_KEY, JSON.stringify({date:today, idx, done:false}));
-  renderChallenge();
-});
+    // Q6-Q7: "Oh interesting" facts
+    {
+      q: 'Which massive afforestation project aims to plant an 8,000 km long strip of trees to stop the Sahara Desert from expanding?', 
+      options: ['The Sahara Shield', 'The African Canopy Project', 'The Great Green Wall', 'The Desert Stop Initiative'], 
+      ans: 'The Great Green Wall'
+    },
+    {
+      q: 'Through what fascinating underground network do trees in a healthy forest communicate and share nutrients?', 
+      options: ['Underground water streams', 'The Mycorrhizal network (fungi)', 'Direct root-to-root fusion', 'Carbon tunnels'], 
+      ans: 'The Mycorrhizal network (fungi)'
+    }
+  ]
+};
 
 // ---------- Modal Quiz-----------
 // ---- Modal Logic ----
@@ -101,9 +59,12 @@ const closeModal = document.getElementById('closeModal');
 
 // Open modal when any "Take Quiz" button is clicked
 document.querySelectorAll('.quiz-card .btn').forEach(btn => {
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', (e) => {
     quizModal.style.display = 'block';
-    startQuiz();
+    
+    // Check what topic this button wants. If none is listed, use 'default'
+    const topic = e.target.getAttribute('data-topic') || 'default';
+    startQuiz(topic);
   });
 });
 
@@ -119,47 +80,63 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// ------- quiz Qs ------
-
-
 // --------- quiz system ----------
-let qIndex = 0, score = 0;
-const totalQ = QUIZ.length;
-function startQuiz(){
-  qIndex=0; score=0;
+let qIndex = 0, score = 0, totalQ = 0;
+let currentQuizArray = [];
+let currentTopic = '';
+
+function startQuiz(topic){
+  currentTopic = topic;
+  // Load the correct array based on the topic passed in
+  currentQuizArray = QUIZZES[currentTopic];
+  totalQ = currentQuizArray.length;
+  
+  qIndex=0; 
+  score=0;
   document.getElementById('result').style.display='none';
   document.getElementById('feedback').textContent='';
   renderQuestion();
 }
+
 function renderQuestion(){
   document.getElementById('totalQ').textContent = totalQ;
-  const q = QUIZ[qIndex];
+  const q = currentQuizArray[qIndex];
   document.getElementById('qText').textContent = q.q;
-  const opts = document.getElementById('options'); opts.innerHTML='';
+  const opts = document.getElementById('options'); 
+  opts.innerHTML='';
+  
   q.options.forEach(opt=>{
     const div = document.createElement('div'); div.className='option';
     div.textContent = opt;
-    div.onclick = ()=>{ document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected')); div.classList.add('selected'); };
+    div.onclick = ()=>{ 
+        document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected')); 
+        div.classList.add('selected'); 
+    };
     opts.appendChild(div);
   });
+  
   document.getElementById('submitAnswer').style.display='inline-block';
   document.getElementById('nextQ').style.display='none';
 }
+
 document.getElementById('submitAnswer').addEventListener('click', ()=>{
   const selected = document.querySelector('.option.selected');
   if(!selected){ alert('Please select an option.'); return; }
+  
   const answer = selected.textContent;
-  const correct = QUIZ[qIndex].ans;
+  const correct = currentQuizArray[qIndex].ans;
+  
   if(answer === correct){
     score++;
     document.getElementById('feedback').textContent = 'Correct ✅';
   } else {
     document.getElementById('feedback').textContent = `Incorrect — correct: ${correct}`;
   }
+  
   document.getElementById('submitAnswer').style.display='none';
   document.getElementById('nextQ').style.display='inline-block';
-  // if last question show results on next
 });
+
 document.getElementById('nextQ').addEventListener('click', ()=>{
   qIndex++;
   document.getElementById('feedback').textContent='';
@@ -167,12 +144,16 @@ document.getElementById('nextQ').addEventListener('click', ()=>{
     // show result
     document.getElementById('result').style.display='block';
     document.getElementById('scoreVal').textContent = score;
-    // store best score locally
-    const best = Number(localStorage.getItem('planet_best_score')||0);
-    if(score > best) localStorage.setItem('planet_best_score', score);
+    
+    // store best score locally using a dynamic key based on the topic
+    const storageKey = `planet_best_score_${currentTopic}`;
+    const best = Number(localStorage.getItem(storageKey)||0);
+    if(score > best) localStorage.setItem(storageKey, score);
   } else renderQuestion();
 });
-document.getElementById('restart').addEventListener('click', startQuiz);
+
+// Restart button uses the same topic we are currently on
+document.getElementById('restart').addEventListener('click', () => startQuiz(currentTopic));
 
 // misc
 document.getElementById('newFact').addEventListener('click', showRandomFact);
@@ -183,7 +164,5 @@ window.addEventListener('DOMContentLoaded', ()=>{
   populateFacts();
   showRandomFact();
   renderChallenge();
-  startQuiz();
+  // startQuiz() is removed from here so it waits for a user click instead
 });
-
-
