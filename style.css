@@ -1,4 +1,3 @@
-
 :root{
   --bg:#fbfbf8;
   --card:#f4fff3;
@@ -31,6 +30,9 @@ body{
   color:#123;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+}
+body.no-rubber-band, html:has(body.no-rubber-band) {
+  overscroll-behavior: none;
 }
 .container{max-width:1000px;margin:0 auto;padding:18px}
 
@@ -99,30 +101,100 @@ body{
 
   
 /*---------ENVIRONEMENT PAGES----------*/
+:root {
+  --logo-green: #83CF8F; 
+  --dark-green: #1c722b; /* Project variable --accent-3 */
+  --bento-green: #f4fff3;
+  --bento-blue: #f0f7ff;
+}
+
 .highlight {
   color: #2e7d32;
   font-weight: 600;
 }
 
+#climate-change h1, 
+#climate-change h2, 
+#climate-change h3, 
+#climate-change h4 {
+  color: var(--dark-green);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+#climate-change p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+#climate-change h1 { font-size: 2.5rem; }
+#climate-change h3 { font-size: 1.5rem; }
+
 /* -------- ENVIRONMENT PAGE LAYOUT -------- */
-.env-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  max-width: 900px;
+#climate-change.container {
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 2rem;
+  padding-top: 100px; 
 }
 
-.env-image img {
+/* --- Asymmetric Hero Grid --- */
+.env-hero-grid {
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  grid-template-areas: 
+    "intro image"
+    "why image";
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.env-intro-area { grid-area: intro; align-self: end; }
+.env-why-area { grid-area: why; }
+.env-hero-image-area { grid-area: image; display: flex; align-items: center; justify-content: center; }
+
+.env-hero-image-area img {
   width: 100%;
-  max-width: 350px;
-  border-radius: 10px;
-  object-fit: cover;
+  max-width: 450px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease;
 }
 
-.env-content {
+.env-hero-image-area img:hover { transform: scale(1.03); }
+
+/* --- Why It Matters Cards --- */
+.env-why-list { display: flex; gap: 1rem; list-style: none; padding: 0; margin: 0; }
+.env-why-item {
   flex: 1;
+  background: white;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.env-why-item:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+.env-why-item strong { display: block; color: var(--dark-green); margin-bottom: 0.3rem; }
+
+/* --- Bento Action Cards --- */
+.env-bento-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 1.5rem; }
+.env-bento-card {
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(47, 139, 62, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.env-bento-card:hover { transform: translateY(-5px); }
+.env-bento-card.tint-green { background: var(--bento-green); }
+.env-bento-card.tint-blue { background: var(--bento-blue); }
+
+.env-bento-card h4 { margin-top: 0; font-size: 1.3rem; color: var(--dark-green); }
+.env-bento-card ul, .env-bento-card ol { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem; }
 
 
 /*---------CHALLENGE----------*/
@@ -245,6 +317,19 @@ body{
   .hero-inner{flex-direction:column;align-items:flex-start}
   .card-grid{grid-template-columns:repeat(2,1fr)}
   .footer-inner{flex-direction:column;align-items:flex-start;gap:8px}
+
+  /* Environment Grid Mobile Logic */
+  .env-hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "intro"
+      "image"
+      "why";
+    text-align: center;
+  }
+  
+  .env-why-list { flex-direction: column; }
+  .env-bento-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width:520px){
@@ -334,4 +419,3 @@ main.container {
 #news {
   margin-top: 50px;
 }
-
