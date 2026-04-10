@@ -141,6 +141,7 @@ function startQuiz(){
   renderQuestion();
 }
 function renderQuestion(){
+  document.getElementById('qNum').textContent = qIndex + 1;
   document.getElementById('totalQ').textContent = totalQ;
   const q = QUIZ[qIndex];
   document.getElementById('qText').textContent = q.q;
