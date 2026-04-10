@@ -80,19 +80,26 @@ function renderChallenge(){
   const stored = JSON.parse(localStorage.getItem(CH_KEY) || '{}');
   document.getElementById('challengeStatus').textContent = stored.done ? 'Completed ✔️' : 'Not done yet';
 }
-document.getElementById('markDone').addEventListener('click', ()=>{
-  const stored = JSON.parse(localStorage.getItem(CH_KEY) || '{}');
-  stored.done = true;
-  localStorage.setItem(CH_KEY, JSON.stringify(stored));
-  renderChallenge();
-});
-document.getElementById('nextChallenge').addEventListener('click', ()=>{
+
+const markDoneBtn = document.getElementById('markDone');
+if (markDoneBtn) {
+  markDoneBtn.addEventListener('click', ()=>{
+    const stored = JSON.parse(localStorage.getItem(CH_KEY) || '{}');
+    stored.done = true;
+    localStorage.setItem(CH_KEY, JSON.stringify(stored));
+    renderChallenge();
+  });
+}
+const nextChallengeBtn = document.getElementById('nextChallenge');
+if (nextChallengeBtn) {
+  nextChallengeBtn.addEventListener('click', ()=>{
   // force new random
   const today = new Date().toISOString().slice(0,10);
   const idx = Math.floor(Math.random()*CHALLENGES.length);
   localStorage.setItem(CH_KEY, JSON.stringify({date:today, idx, done:false}));
   renderChallenge();
 });
+}
 
 // ---------- Modal Quiz-----------
 // ---- Modal Logic ----
@@ -108,9 +115,11 @@ document.querySelectorAll('.quiz-card .btn').forEach(btn => {
 });
 
 // Close modal
+if(closeModal){
 closeModal.addEventListener('click', () => {
   quizModal.style.display = 'none';
 });
+}
 
 // Close if clicking outside content
 window.addEventListener('click', (e) => {
@@ -145,7 +154,8 @@ function renderQuestion(){
   document.getElementById('submitAnswer').style.display='inline-block';
   document.getElementById('nextQ').style.display='none';
 }
-document.getElementById('submitAnswer').addEventListener('click', ()=>{
+if(document.getElementById('submitAnswer')){
+  document.getElementById('submitAnswer').addEventListener('click', ()=>{
   const selected = document.querySelector('.option.selected');
   if(!selected){ alert('Please select an option.'); return; }
   const answer = selected.textContent;
@@ -160,6 +170,8 @@ document.getElementById('submitAnswer').addEventListener('click', ()=>{
   document.getElementById('nextQ').style.display='inline-block';
   // if last question show results on next
 });
+}
+if(document.getElementById('nextQ')){
 document.getElementById('nextQ').addEventListener('click', ()=>{
   qIndex++;
   document.getElementById('feedback').textContent='';
@@ -172,17 +184,23 @@ document.getElementById('nextQ').addEventListener('click', ()=>{
     if(score > best) localStorage.setItem('planet_best_score', score);
   } else renderQuestion();
 });
-document.getElementById('restart').addEventListener('click', startQuiz);
+}
+if(document.getElementById('restart')){
+  document.getElementById('restart').addEventListener('click', startQuiz);
+}
 
 // misc
-document.getElementById('newFact').addEventListener('click', showRandomFact);
-
-if(document.getElementById("footerYear")){
-  document.getElementById("footerYear").textContent = new Date().getFullYear();
+if(document.getElementById('newFact')){
+  document.getElementById('newFact').addEventListener('click', showRandomFact);
 }
+
+
 
 // init on load
 window.addEventListener('DOMContentLoaded', ()=>{
+  if(document.getElementById("footerYear")){
+  document.getElementById("footerYear").textContent = new Date().getFullYear();
+  }
   populateCards();
   populateFacts();
   showRandomFact();
