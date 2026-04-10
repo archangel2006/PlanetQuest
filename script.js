@@ -133,10 +133,10 @@ window.addEventListener('click', (e) => {
 
 // --------- quiz system ----------
 let qIndex = 0, score = 0;
-const totalQ = QUIZ.length;
+let totalQ = QUIZ.length;
 function startQuiz(){
   qIndex=0; score=0;
-  totalQ = filteredQuiz.length;
+  totalQ = QUIZ.length; 
   document.getElementById('result').style.display='none';
   document.getElementById('feedback').textContent='';
   renderQuestion();
