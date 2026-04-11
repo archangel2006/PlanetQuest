@@ -123,53 +123,66 @@ window.addEventListener('click', (e) => {
 
 
 // --------- quiz system ----------
-let qIndex = 0, score = 0;
+let qIndex = 0, score = 0, quizOrder = [];
 const totalQ = QUIZ.length;
+function shuffleQuiz(){
+  const order = QUIZ.map((_, idx) => idx);
+  for(let i = order.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return order;
+}
 function startQuiz(){
-  qIndex=0; score=0;
-  document.getElementById('result').style.display='none';
-  document.getElementById('feedback').textContent='';
+  qIndex = 0;
+  score = 0;
+  quizOrder = shuffleQuiz();
+  document.getElementById('result').style.display = 'none';
+  document.getElementById('feedback').textContent = '';
+  document.getElementById('highScore').textContent = '';
   renderQuestion();
 }
 function renderQuestion(){
   document.getElementById('totalQ').textContent = totalQ;
-  const q = QUIZ[qIndex];
+  const q = QUIZ[quizOrder[qIndex]];
   document.getElementById('qText').textContent = q.q;
-  const opts = document.getElementById('options'); opts.innerHTML='';
-  q.options.forEach(opt=>{
-    const div = document.createElement('div'); div.className='option';
+  const opts = document.getElementById('options'); opts.innerHTML = '';
+  q.options.forEach(opt => {
+    const div = document.createElement('div'); div.className = 'option';
     div.textContent = opt;
-    div.onclick = ()=>{ document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected')); div.classList.add('selected'); };
+    div.onclick = () => { document.querySelectorAll('.option').forEach(o => o.classList.remove('selected')); div.classList.add('selected'); };
     opts.appendChild(div);
   });
-  document.getElementById('submitAnswer').style.display='inline-block';
-  document.getElementById('nextQ').style.display='none';
+  document.getElementById('submitAnswer').style.display = 'inline-block';
+  document.getElementById('nextQ').style.display = 'none';
 }
-document.getElementById('submitAnswer').addEventListener('click', ()=>{
+document.getElementById('submitAnswer').addEventListener('click', () => {
   const selected = document.querySelector('.option.selected');
   if(!selected){ alert('Please select an option.'); return; }
   const answer = selected.textContent;
-  const correct = QUIZ[qIndex].ans;
+  const correct = QUIZ[quizOrder[qIndex]].ans;
   if(answer === correct){
     score++;
     document.getElementById('feedback').textContent = 'Correct ✅';
   } else {
     document.getElementById('feedback').textContent = `Incorrect — correct: ${correct}`;
   }
-  document.getElementById('submitAnswer').style.display='none';
-  document.getElementById('nextQ').style.display='inline-block';
-  // if last question show results on next
+  document.getElementById('submitAnswer').style.display = 'none';
+  document.getElementById('nextQ').style.display = 'inline-block';
 });
-document.getElementById('nextQ').addEventListener('click', ()=>{
+document.getElementById('nextQ').addEventListener('click', () => {
   qIndex++;
-  document.getElementById('feedback').textContent='';
+  document.getElementById('feedback').textContent = '';
   if(qIndex >= totalQ){
-    // show result
-    document.getElementById('result').style.display='block';
+    document.getElementById('result').style.display = 'block';
     document.getElementById('scoreVal').textContent = score;
-    // store best score locally
-    const best = Number(localStorage.getItem('planet_best_score')||0);
-    if(score > best) localStorage.setItem('planet_best_score', score);
+    const best = Number(localStorage.getItem('planet_best_score') || 0);
+    if(score > best){
+      localStorage.setItem('planet_best_score', score);
+      document.getElementById('highScore').textContent = `🎉 New best score! Previous best: ${best}`;
+    } else {
+      document.getElementById('highScore').textContent = `Best score: ${best}`;
+    }
   } else renderQuestion();
 });
 document.getElementById('restart').addEventListener('click', startQuiz);
