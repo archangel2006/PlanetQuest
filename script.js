@@ -1,5 +1,6 @@
-// PlanetQuest - main JS
+
 // Data sets (cards, facts, quiz)
+
 const ENV_CARDS = [
   {title:'Marine Life', text:'Ocean health, coral reefs, and plastic pollution. Learn how simple actions protect marine animals.', link: 'EnvironmentPages/ClimateChange.html' },
   {title:'Forests & Trees', text:'Forests are the lungs of the Earth. Reforestation, biodiversity and community forests matter.', link: 'EnvironmentPages/ClimateChange.html' },
@@ -27,14 +28,42 @@ const CHALLENGES = [
   'Unplug chargers and devices when not in use.'
 ];
 
-const QUIZ = [
-  {q:'Which gas is the primary driver of current climate change?', options:['Oxygen','Carbon Dioxide','Nitrogen','Helium'], ans:'Carbon Dioxide'},
-  {q:'Which of the following is a renewable energy source?', options:['Coal','Wind','Natural Gas','Oil'], ans:'Wind'},
-  {q:'Composting helps reduce which greenhouse gas from landfills?', options:['CO2','Methane (CH4)','Nitrous Oxide','Ozone'], ans:'Methane (CH4)'},
-  {q:'Which action saves water at home?', options:['Running the tap while brushing','Fixing leaks','Washing car every day','Keeping sprinklers on'], ans:'Fixing leaks'}
-];
+// ---------- QUIZ DATA ----------
+
+let currentQuiz = [];
+
+const QUIZ_DATA = {
+  marine: [
+    {q:'What is the biggest threat to marine life?', options:['Plastic pollution','Sand','Rocks','Clouds'], ans:'Plastic pollution'},
+    {q:'Coral reefs support about what % of marine life?', options:['10%','25%','50%','75%'], ans:'25%'}
+  ],
+
+  forest: [
+    {q:'Why are forests important?', options:['Provide oxygen','Make noise','Block roads','None'], ans:'Provide oxygen'},
+    {q:'What is deforestation?', options:['Planting trees','Cutting trees','Watering plants','None'], ans:'Cutting trees'}
+  ],
+
+  pollution: [
+    {q:'Which is a major air pollutant?', options:['CO2','Oxygen','Hydrogen','Helium'], ans:'CO2'},
+    {q:'What reduces pollution?', options:['Burning waste','Recycling','Littering','Smoking'], ans:'Recycling'}
+  ],
+
+  energy: [
+    {q:'Which is renewable?', options:['Coal','Solar','Oil','Gas'], ans:'Solar'},
+    {q:'Solar energy comes from?', options:['Moon','Sun','Earth','Water'], ans:'Sun'}
+  ],
+
+  wildlife: [
+    {q:'Why protect wildlife?', options:['Balance ecosystem','For fun','No reason','Destroy nature'], ans:'Balance ecosystem'}
+  ],
+
+  climate: [
+    {q:'Main cause of climate change?', options:['CO2','Oxygen','Nitrogen','Helium'], ans:'CO2'}
+  ]
+};
 
 // ---------- UI population ----------
+
 function populateCards(){
   const container = document.getElementById('cards');
   container.innerHTML = '';
@@ -61,6 +90,8 @@ function showRandomFact(){
   const idx = Math.floor(Math.random()*FACTS.length);
   document.getElementById('randomFact').textContent = FACTS[idx];
 }
+
+document.getElementById('newFact').addEventListener('click', showRandomFact);
 
 // daily challenge logic
 const CH_KEY = 'planet_challenge_today';
@@ -94,7 +125,8 @@ document.getElementById('nextChallenge').addEventListener('click', ()=>{
   renderChallenge();
 });
 
-// ---------- Modal Quiz-----------
+// ---------- MODAL QUIZ -----------
+
 // ---- Modal Logic ----
 const quizModal = document.getElementById('quizModal');
 const closeModal = document.getElementById('closeModal');
@@ -102,6 +134,9 @@ const closeModal = document.getElementById('closeModal');
 // Open modal when any "Take Quiz" button is clicked
 document.querySelectorAll('.quiz-card .btn').forEach(btn => {
   btn.addEventListener('click', () => {
+    const topic = btn.dataset.topic;
+    currentQuiz = QUIZ_DATA[topic] || [];
+
     quizModal.style.display = 'block';
     startQuiz();
   });
@@ -119,21 +154,18 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// ------- quiz Qs ------
-
-
 // --------- quiz system ----------
 let qIndex = 0, score = 0;
-const totalQ = QUIZ.length;
+let totalQ = 0;
 function startQuiz(){
-  qIndex=0; score=0;
+  qIndex=0; score=0; totalQ = currentQuiz.length;
   document.getElementById('result').style.display='none';
   document.getElementById('feedback').textContent='';
   renderQuestion();
 }
 function renderQuestion(){
   document.getElementById('totalQ').textContent = totalQ;
-  const q = QUIZ[qIndex];
+  const q = currentQuiz[qIndex];
   document.getElementById('qText').textContent = q.q;
   const opts = document.getElementById('options'); opts.innerHTML='';
   q.options.forEach(opt=>{
@@ -149,7 +181,7 @@ document.getElementById('submitAnswer').addEventListener('click', ()=>{
   const selected = document.querySelector('.option.selected');
   if(!selected){ alert('Please select an option.'); return; }
   const answer = selected.textContent;
-  const correct = QUIZ[qIndex].ans;
+  const correct = currentQuiz[qIndex].ans;
   if(answer === correct){
     score++;
     document.getElementById('feedback').textContent = 'Correct ✅';
@@ -172,10 +204,10 @@ document.getElementById('nextQ').addEventListener('click', ()=>{
     if(score > best) localStorage.setItem('planet_best_score', score);
   } else renderQuestion();
 });
-document.getElementById('restart').addEventListener('click', startQuiz);
-
-// misc
-document.getElementById('newFact').addEventListener('click', showRandomFact);
+// restart quiz
+document.getElementById('restart').addEventListener('click', () => {
+  if (currentQuiz.length) startQuiz();
+});
 
 // init on load
 window.addEventListener('DOMContentLoaded', ()=>{
@@ -183,7 +215,6 @@ window.addEventListener('DOMContentLoaded', ()=>{
   populateFacts();
   showRandomFact();
   renderChallenge();
-  startQuiz();
 });
 
 
